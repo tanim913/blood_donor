@@ -77,7 +77,11 @@ class BloodDonor(models.Model):
         else:
             raise UserError("Not Eligible for donating blood.")
 
-    
+    def calculate_hours_difference(self, symptom_since):
+        symptoms_delay = relativedelta.relativedelta(datetime.today(),datetime.strptime(str(self.symptom_since),'%Y-%m-%d'))
+        difference = symptoms_delay.hours + (symptoms_delay.days*24)
+        return difference 
+
     @api.onchange('height','weight')
     def onchange_calculate_bmi(self):
         if self.height and self.weight:
@@ -89,6 +93,10 @@ class BloodDonor(models.Model):
         if self and self.date_of_birth:
             self.age = self.calculate_age(self.date_of_birth)
 
+    @api.onchange('symptom_since')
+    def onchange_symptom_since(self):
+        if self and self.symptom_since:
+            self.symptom_hours = self.calculate_hours_difference(self.symptom_since)
 
 
     
