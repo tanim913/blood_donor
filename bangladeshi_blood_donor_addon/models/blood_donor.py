@@ -53,6 +53,8 @@ class BloodDonor(models.Model):
 
     visitable_places_ids = fields.Many2many('visitable.place', string="Places Can Travel")
     donor_symptoms_ids = fields.Many2many('donor.symptoms', string="Donor Symptoms")
+    symptom_since = fields.Date(string="Symptom Since")
+    symptom_hours = fields.Float(string="Symptom for (hours)")
 
     def calculate_bmi(self,h,w):
         height_in_meter = h/100
@@ -86,6 +88,8 @@ class BloodDonor(models.Model):
     def onchange_date_of_birth(self):
         if self and self.date_of_birth:
             self.age = self.calculate_age(self.date_of_birth)
+
+
 
     
     
