@@ -63,6 +63,8 @@
                                     <field name="age"/>
                                     <field name="last_donated"/>
                                     <field name="blood_group_id"/>
+                                    <!-- <field name="donation_delay_days"/> -->
+
 
                                 </group>
                                 <group>
