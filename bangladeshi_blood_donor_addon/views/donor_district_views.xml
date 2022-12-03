@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_donor_district_tree" model="ir.ui.view">
+        <field name="name">donor.district.tree</field>
+        <field name="model">donor.district</field>
+        <field name="arch" type="xml">
+            <tree string="District">
+                <!-- <field name="id" /> -->
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_donor_district_form" model="ir.ui.view">
+        <field name="name">donor.district.form</field>
+        <field name="model">donor.district</field>
+        <field name="arch" type="xml">
+            <form string="District">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <notebook>
+                        <page string="Donor List" name='donor_list'>
+                            <field name="district_ids">
+                                <tree>
+                                    <field name="name" />
+                                </tree>
+
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!-- 
+    <record id="view_donor_blood_group_form_simple" model="ir.ui.view">
+        <field name="name">donor.blood.group.form.simple</field>
+        <field name="model">donor.blood.group</field>
+        <field name="arch" type="xml">
+            <form string="Blood Group">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1" />
+                    </group>
+                    <notebook>
+                        <page string="Donor List" name='donor_list'>
+                            <field name="donor_ids" readonly="1">
+                                <tree>
+                                    <field name="name" readonly="1" />
+                                </tree>
+
+                            </field>
+                        </page>
+
+
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Cancel" class="btn btn-primary" special='cancel' />
+                </footer>
+            </form>
+        </field>
+    </record> -->
+
+    <record id="action_donor_district_list" model="ir.actions.act_window">
+        <field name="name">Districts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">donor.district</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_blood_donor_module_donor_district_list"
+        name="Districts"
+        parent="menu_blood_donor_module"
+        action="action_donor_district_list"
+        sequence="3" />
+
+</odoo>

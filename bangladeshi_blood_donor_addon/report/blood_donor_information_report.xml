@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="report_blood_donor_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <!-- <h5>Picture : <img t-field="doc.employee_photos"/></h5> -->
+                        <!-- declaring variable using t-out and t-esc -->
+                        <!-- <t t-set = "a" t-value="365877493"/>
+                    <h1 t-out="a"/> -->
+
+
+                        <h1>Donor Information</h1>
+
+                        <h5>
+                            Blood Group :
+                            <span t-out="doc.blood_group_id.name" />
+                        </h5>
+                        <h5>
+                            Last Donated :
+                            <span t-out="doc.last_donated" />
+                        </h5>
+                        
+                           
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <!-- <template id="report_bista_job_position_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <strong>Job Position:  </strong>
+                        <p>
+                            <span t-out="doc.name" />
+                        </p>
+                        <table class="table table-sm o_main_table">
+                            <h4>
+                            Employee List
+                        </h4>
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th name="th_employee_name" class="text-left">Employee Name</th>
+                                        <th name="th_joining_date" class="text-left">Joining Date</th>
+                                        <th name="th_age" class="text-left">Age</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+
+                            <tbody>
+
+                                <t t-foreach="doc.employee_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_employee_name" class="text-left">
+                                            <span t-out = "id_index"/>
+                                            <span t-out="id.name" />
+                                        </td>
+
+                                        <td name="td_employee_joining_date" class="text-left">
+                                            <span t-out="id.joining_date" />
+                                        </td>
+
+                                        <td name="td_employee_age" class="text-left">
+                                            <span t-out="id.age" />
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template> -->
+
+
+</odoo>

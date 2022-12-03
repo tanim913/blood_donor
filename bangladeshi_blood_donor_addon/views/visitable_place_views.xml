@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_visitable_place_tree" model="ir.ui.view">
+        <field name="name">visitable.place.tree</field>
+        <field name="model">visitable.place</field>
+        <field name="arch" type="xml">
+            <tree string="Visitable Places Can Donor Travel">
+                <field name="name" />
+                
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_visitable_place_form" model="ir.ui.view">
+        <field name="name">visitable.place.form</field>
+        <field name="model">visitable.place</field>
+        <field name="arch" type="xml">
+            <form string="Place Names">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        
+                    </group>
+                    <notebook>
+                        <page string="Place List" name='place_list'>
+
+                            <field name="places_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="donor_district_id" />
+                                </tree>
+
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    
+
+    <record id="action_visitable_place_list" model="ir.actions.act_window">
+        <field name="name">Place Names</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">visitable.place</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_blood_donor_module_visitable_place_list"
+        name="Places can be visited"
+        parent="menu_blood_donor_module"
+        action="action_visitable_place_list"
+        sequence="4" />
+
+</odoo>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_donor_blood_group_tree" model="ir.ui.view">
+        <field name="name">donor.blood.group.tree</field>
+        <field name="model">donor.blood.group</field>
+        <field name="arch" type="xml">
+            <tree string="Blood Group">
+                <!-- <field name="id" /> -->
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_donor_blood_group_form" model="ir.ui.view">
+        <field name="name">donor.blood.group.form</field>
+        <field name="model">donor.blood.group</field>
+        <field name="arch" type="xml">
+            <form string="Blood Group">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="donor_ids"/>
+                    </group>
+                    <notebook>
+                        <page string="Donor List" name='donor_list'>
+                            <field name="donor_ids">
+                                <tree>
+                                    <field name="name" />
+                                </tree>
+
+                            </field>
+                        </page>
+
+                        <!-- <page string="Other Info" name="other">
+                            <group>
+                                <field name="id" />
+                                <field name="create_uid" />
+                                <field name="create_date" />
+                            </group>
+                        </page> -->
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_donor_blood_group_form_simple" model="ir.ui.view">
+        <field name="name">donor.blood.group.form.simple</field>
+        <field name="model">donor.blood.group</field>
+        <field name="arch" type="xml">
+            <form string="Blood Group">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1" />
+                    </group>
+                    <notebook>
+                        <page string="Donor List" name='donor_list'>
+                            <field name="donor_ids" readonly="1">
+                                <tree>
+                                    <field name="name" readonly="1" />
+                                </tree>
+
+                            </field>
+                        </page>
+
+
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Cancel" class="btn btn-primary" special='cancel' />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_donor_blood_group_list" model="ir.actions.act_window">
+        <field name="name">Blood Groups</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">donor.blood.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_blood_donor_module_donor_blood_group_list"
+        name="Blood Groups"
+        parent="menu_blood_donor_module"
+        action="action_donor_blood_group_list"
+        sequence="2" />
+
+</odoo>

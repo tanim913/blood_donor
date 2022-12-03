@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu/Butoon ===> Action ====> View -->
+    <record id="view_blood_donor_tree" model="ir.ui.view">
+        <field name="name">blood.donor.tree</field>
+        <field name="model">blood.donor</field>
+        <field name="arch" type="xml">
+            <tree string="Blood Donor">
+
+                <field name="name" />
+                <field name="donor_id" />
+                <field name="contact_no" />
+
+                <field name="blood_group_id" />
+                <field name="donor_district_id" />
+                
+                
+                
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_blood_donor_form" model="ir.ui.view">
+        <field name="name">blood.donor.form</field>
+        <field name="model">blood.donor</field>
+        <field name="arch" type="xml">
+            <form string="Blood Donor">
+                <header>
+                    <button name="check_eligibility" class="btn btn-primary" string="Check Eligibiity" type="object" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="donor_pic" widget="image" />
+                    </group>
+                    <group>
+                        <field name="donor_id" />
+                    </group>
+
+                    <notebook>
+                        <page string="Personal Information" name='personal_information'>
+                            <group>
+                                <group>
+                                    <field name="first_name"/>
+                                    <field name="last_name"/>
+                                    <field name="name"/>
+                                    <field name="marital_status"/>
+                                </group>
+                                <group>
+                                    <field name="contact_no"/>
+                                    <field name="gender"/>
+                                    <field name="occupation"/>
+                                    <field name="email_address"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Eligibility Information" name='eligibility_information'>
+                            <group>
+                                <group>
+                                    <field name="date_of_birth"/>
+                                    <field name="age"/>
+                                    <field name="last_donated"/>
+                                    <field name="blood_group_id"/>
+
+                                </group>
+                                <group>
+                                    <field name="height"/>
+                                    <field name="weight"/>
+                                    <field name="bmi"/>
+                                    <field name="rh_factor"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Donor's Area" name='donor_area'>
+                            <group>
+                                <field name="donor_district_id"/>
+                                <field name="visitable_places_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                        
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_blood_donor_list" model="ir.actions.act_window">
+        <field name="name">Blood Donor List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">blood.donor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_blood_donor_module"
+        name="Blood Donor"
+        sequence="1" />
+
+    <menuitem
+        id="menu_blood_donor_module_donor_lists"
+        name="Donor"
+        parent="menu_blood_donor_module"
+        action="action_blood_donor_list"
+        sequence="1" />
+
+
+
+</odoo>
