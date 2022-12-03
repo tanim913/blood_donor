@@ -42,9 +42,9 @@
                         <page string="Personal Information" name='personal_information'>
                             <group>
                                 <group>
-                                    <field name="first_name"/>
-                                    <field name="last_name"/>
-                                    <field name="name"/>
+                                    <field name="first_name" required="1"/>
+                                    <field name="last_name"  required="1"/>
+                                    <field name="name"  readonly="1"/>
                                     <field name="marital_status"/>
                                 </group>
                                 <group>

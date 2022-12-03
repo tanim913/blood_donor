@@ -99,6 +99,54 @@ class BloodDonor(models.Model):
             self.symptom_hours = self.calculate_hours_difference(self.symptom_since)
 
 
+    @api.model
+    def create(self, vals):
+
+        if vals.get("first_name") and vals.get("last_name"):
+            vals['name'] = str(vals.get("first_name") +" "+ vals.get("last_name"))
+        elif vals.get("first_name") and not vals.get("last_name"):
+            vals['name'] = str(vals.get("first_name"))
+        elif vals.get("last_name") and not vals.get("first_name"):
+            vals['name'] = str(vals.get("last_name"))
+        else:
+            raise ValidationError("Please provide First Name or Last Name or Both.")
+        phone_number = vals['contact_no']
+        if len(phone_number) < 11 or len(phone_number) > 11:
+            raise ValidationError("Invalid Contact Number")
+        if phone_number[:3] != '+88' and len(phone_number) == 11:
+            phone_number = "+88" + phone_number
+            vals['contact_no'] = phone_number
+        if len(phone_number) == 14 and phone_number[:3] != '+88':
+            raise ValidationError("Invalid Contact Number")
+        result = super(BloodDonor, self).create(vals)
+
+        return result
     
-    
-    
+    def write(self, vals):
+        if 'contact_no' in vals:
+            if len(vals['contact_no'])>14 or len(vals['contact_no'])<11:
+                raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
+            elif len(vals['contact_no'])==11:
+                if vals['contact_no'][0:3]!='+88':
+                    vals['contact_no']='+88'+vals['contact_no']
+                else:
+                    raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
+            elif len(vals['contact_no'])==14:
+                if vals['contact_no'][0:3]!='+88':
+                    raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
+            else:
+                raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
+
+        if "first_name" in vals or "last_name" in vals:
+           
+            if vals.get("first_name") and vals.get("last_name"):
+                vals['name'] = vals.get("first_name") +" "+ vals.get("last_name")
+            elif vals.get("first_name") and not vals.get("last_name"):
+                vals['name'] = vals.get("first_name")+" "+self.last_name
+            elif vals.get("last_name") and not vals.get("first_name"):
+                vals['name'] = self.first_name+" "+vals.get("last_name")
+
+
+        print(vals)
+        result = super(BloodDonor,self).write(vals)
+        return result
