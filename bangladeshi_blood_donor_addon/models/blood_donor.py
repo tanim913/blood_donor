@@ -22,7 +22,7 @@ class BloodDonor(models.Model):
     donor_pic = fields.Image(string="Donor's Picture", max_width=150, max_height=150)
     date_of_birth = fields.Date(string="Date of Birth")
     last_donated = fields.Date(string="Last Donated")
-    # donation_delay_days = fields.Date(string="Donated (Days Ago)")
+    donation_delay_days = fields.Char(string="Donated (Days Ago)")
     today = fields.Date.today()
     bmi = fields.Float(string= "Body Mass Index")
     height = fields.Float(string= "Height(cm)")
@@ -85,14 +85,7 @@ class BloodDonor(models.Model):
         return difference 
     
     
-    # def calculate_days_difference(self, last_donated):
-    #     donation_delay = relativedelta.relativedelta(datetime.today(),datetime.strptime(str(self.last_donated),'%Y-%m-%d'))
-    #     difference = donation_delay.months + (donation_delay.years*12)
-    #     print("=======================>Delay : ", donation_delay )
-    #     difference = delay.months + (delay.years*12)
-    #     print("=======================>Diff : ", difference )
-
-    #     return difference
+    
 
     @api.onchange('height','weight')
     def onchange_calculate_bmi(self):
@@ -110,10 +103,13 @@ class BloodDonor(models.Model):
         if self and self.symptom_since:
             self.symptom_hours = self.calculate_hours_difference(self.symptom_since)
     
-    # @api.onchange('last_donated')
-    # def onchange_last_donated(self):
-    #     if self and self.last_donated:
-    #         self.donation_delay_days = self.calculate_days_difference(self.last_donated)
+    @api.onchange('last_donated')
+    def onchange_last_donated(self):
+        if self and self.last_donated:
+            d1=datetime.strptime(str(self.today),'%Y-%m-%d') 
+            d2=datetime.strptime(str(self.last_donated),'%Y-%m-%d')
+            d3=d1-d2
+            self.donation_delay_days=str(d3.days)
 
 
     @api.model
