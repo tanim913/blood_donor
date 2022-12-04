@@ -6,17 +6,11 @@
         <field name="model">blood.donor</field>
         <field name="arch" type="xml">
             <tree string="Blood Donor">
-
                 <field name="name" />
                 <field name="donor_id" />
                 <field name="contact_no" />
-
                 <field name="blood_group_id" />
                 <field name="donor_district_id" />
-                
-                
-                
-
             </tree>
         </field>
     </record>
@@ -48,7 +42,7 @@
                                     <field name="marital_status"/>
                                 </group>
                                 <group>
-                                    <field name="contact_no"/>
+                                    <field name="contact_no" required="1"/>
                                     <field name="gender"/>
                                     <field name="occupation"/>
                                     <field name="email_address"/>
@@ -72,7 +66,7 @@
                                     <field name="weight" attrs="{'required':[('height','not in', ['', False, 0])]}"/>
                                     <field name="bmi"/>
                                     <field name="rh_factor"/>
-                                    <field name="eligibity" readonly="1"/>
+                                    <field name="eligibity" required="1"/>
 
                                 </group>
                             </group>
@@ -100,6 +94,26 @@
 
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_blood_donor_search" model="ir.ui.view">
+        <field name="name">blood.donor.search</field>
+        <field name="model">blood.donor</field>
+        <field name="arch" type="xml">
+            <search string="Blood Donor">
+                <field name="name" />
+                <field name="donor_id" />
+                <field name="contact_no" />
+                <field name="blood_group_id"/>
+
+                <separator string="Mail"/>
+                <filter name="mail_gmail" string="Gmail" domain="[('email_address','ilike','gmail')]"/>
+
+                <group expand = "1" string="Group By">
+                    <filter name="blood_group" string="Blood Group" context="{'group_by':'blood_group_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
 
