@@ -117,45 +117,45 @@
     </template>
 
 
-    <!-- <template id="report_bista_job_position_information">
+    <template id="report_donor_blood_group_information">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div class="page">
                         <div class="oe_structure" />
-                        <strong>Job Position:  </strong>
+                        <strong>Blood Group:  </strong>
                         <p>
                             <span t-out="doc.name" />
                         </p>
                         <table class="table table-sm o_main_table">
-                            <h4>
-                            Employee List
-                        </h4>
+                            <strong>
+                            Donor List
+                            </strong>
                             <tbody>
                                 <thead>
                                     <tr>
-                                        <th name="th_employee_name" class="text-left">Employee Name</th>
-                                        <th name="th_joining_date" class="text-left">Joining Date</th>
-                                        <th name="th_age" class="text-left">Age</th>
+                                        <th name="th_donor_name" class="text-left">Donor Name</th>
+                                        <th name="th_last_donated" class="text-left">Last Donated</th>
+                                        <th name="th_eligibity" class="text-left">Eligibity</th>
                                     </tr>
                                 </thead>
                             </tbody>
 
                             <tbody>
 
-                                <t t-foreach="doc.employee_ids" t-as="id">
+                                <t t-foreach="doc.donor_ids" t-as="id">
                                     <tr>
-                                        <td name="td_employee_name" class="text-left">
-                                            <span t-out = "id_index"/>
+                                        <td name="td_donor_name" class="text-left">
+                                            <!-- <span t-out = "id_index+1"/> -->
                                             <span t-out="id.name" />
                                         </td>
 
-                                        <td name="td_employee_joining_date" class="text-left">
-                                            <span t-out="id.joining_date" />
+                                        <td name="td_last_donated" class="text-left">
+                                            <span t-out="id.last_donated" />
                                         </td>
 
-                                        <td name="td_employee_age" class="text-left">
-                                            <span t-out="id.age" />
+                                        <td name="td_eligibity" class="text-left">
+                                            <span t-out="id.eligibity" />
                                         </td>
                                     </tr>
                                 </t>
@@ -168,7 +168,7 @@
                 </t>
             </t>
         </t>
-    </template> -->
+    </template>
 
 
 </odoo>

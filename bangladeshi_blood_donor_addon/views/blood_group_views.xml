@@ -19,27 +19,25 @@
                 <sheet>
                     <group>
                         <field name="name" />
-                        <field name="donor_ids"/>
+                        <field name="donor_ids">
+                            <tree>
+                                <field name="name" />
+                                <field name="last_donated" />
+                                <field name="eligibity"/>
+                            </tree>
+                        </field>
                     </group>
-                    <notebook>
+                    <!-- <notebook>
                         <page string="Donor List" name='donor_list'>
                             <field name="donor_ids">
                                 <tree>
                                     <field name="name" />
+
                                 </tree>
 
                             </field>
                         </page>
-
-                        <!-- <page string="Other Info" name="other">
-                            <group>
-                                <field name="id" />
-                                <field name="create_uid" />
-                                <field name="create_date" />
-                            </group>
-                        </page> -->
-
-                    </notebook>
+                    </notebook> -->
                 </sheet>
             </form>
         </field>
