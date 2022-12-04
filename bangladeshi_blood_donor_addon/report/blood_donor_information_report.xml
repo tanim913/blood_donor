@@ -8,25 +8,109 @@
                 <t t-call="web.external_layout">
                     <div class="page">
                         <div class="oe_structure" />
-                        <!-- <h5>Picture : <img t-field="doc.employee_photos"/></h5> -->
-                        <!-- declaring variable using t-out and t-esc -->
-                        <!-- <t t-set = "a" t-value="365877493"/>
-                    <h1 t-out="a"/> -->
+                        <h6>
+                            Date:
+                            <span t-out="doc.today" />
+                        </h6>
+                        <h5>
+                            <b>Donor Information</b>
+                        </h5>
+                        <h5>
+                            Donor Name :
+                            <span t-out="doc.name" />
+                        </h5>
 
-
-                        <h1>Donor Information</h1>
-
+                        <h5>
+                            Contact No :
+                            <span t-out="doc.contact_no" />
+                        </h5>
+                        <h5>
+                            Email Adress :
+                            <span t-out="doc.email_address" />
+                        </h5>
+                        <h5>
+                            Height(cm) :
+                            <span t-out="doc.height" />
+                        </h5>
+                        <h5>
+                            Weight(kg) :
+                            <span t-out="doc.weight" />
+                        </h5>
+                        <h5>
+                            Body Mass Index :
+                            <span t-out="doc.bmi" />
+                        </h5>
                         <h5>
                             Blood Group :
                             <span t-out="doc.blood_group_id.name" />
                         </h5>
                         <h5>
+                            Gender :
+                            <span t-out="doc.gender" />
+                        </h5>
+                        <h5>
+                            Date Of Birth :
+                            <span t-out="doc.date_of_birth" />
+                        </h5>
+                        <h5>
+                            Age :
+                            <span t-out="doc.age" />
+                        </h5>
+                        <h5>
                             Last Donated :
                             <span t-out="doc.last_donated" />
                         </h5>
-                        
-                           
+                        <h5>
+                            Donated(Days ago) :
+                            <span t-out="doc.donation_delay_days" />
+                        </h5>
+
+                        <table class="table table-sm o_main_table">
+                            <h5>
+                            Donor's Symptoms
+                            </h5>
+                            <tbody>
+                                <t t-foreach="doc.donor_symptoms_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_symptoms_name" class="text-left">
+                                            <span t-out="id.name" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <h5>
+                            Symptoms Since :
+                            <span t-out="doc.symptom_since" />
+                        </h5>
+                        <h5>
+                            Symptoms Hours :
+                            <span t-out="doc.symptom_hours" />
+                        </h5>
+                        <h5>
+                            Donors District :
+                            <span t-out="doc.donor_district_id.name" />
+                        </h5>
+                        <table class="table table-sm o_main_table">
+                            <h5>
+                            Places Can Travel
+                            </h5>
+                            <tbody>
+                                <t t-foreach="doc.visitable_places_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_places_name" class="text-left">
+                                            <span t-out="id.name" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <h5>
+                            Eligible :
+                            <span t-out="doc.eligibity" />
+                        </h5>
                     </div>
+
                 </t>
             </t>
         </t>

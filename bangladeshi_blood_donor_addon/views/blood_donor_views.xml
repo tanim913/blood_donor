@@ -72,6 +72,8 @@
                                     <field name="weight" attrs="{'required':[('height','not in', ['', False, 0])]}"/>
                                     <field name="bmi"/>
                                     <field name="rh_factor"/>
+                                    <field name="eligibity" readonly="1"/>
+
                                 </group>
                             </group>
                         </page>

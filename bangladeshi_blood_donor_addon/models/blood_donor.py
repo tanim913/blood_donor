@@ -22,7 +22,7 @@ class BloodDonor(models.Model):
     donor_pic = fields.Image(string="Donor's Picture", max_width=150, max_height=150)
     date_of_birth = fields.Date(string="Date of Birth")
     last_donated = fields.Date(string="Last Donated")
-    donation_delay_days = fields.Char(string="Donated (Days Ago)")
+    donation_delay_days = fields.Integer(string="Donated (Days Ago)")
     today = fields.Date.today()
     bmi = fields.Float(string= "Body Mass Index")
     height = fields.Float(string= "Height(cm)")
@@ -57,7 +57,7 @@ class BloodDonor(models.Model):
     donor_symptoms_ids = fields.Many2many('donor.symptoms', string="Donor Symptoms")
     symptom_since = fields.Date(string="Symptom Since")
     symptom_hours = fields.Float(string="Symptom for (hours)")
-
+    eligibity = fields.Char(string="Eligibity")
     def calculate_bmi(self,h,w):
         height_in_meter = h/100
         body_mass_index = w/(height_in_meter * height_in_meter)
@@ -109,7 +109,16 @@ class BloodDonor(models.Model):
             d1=datetime.strptime(str(self.today),'%Y-%m-%d') 
             d2=datetime.strptime(str(self.last_donated),'%Y-%m-%d')
             d3=d1-d2
-            self.donation_delay_days=str(d3.days)
+            self.donation_delay_days=d3.days
+
+
+    @api.onchange('donation_delay_days',"age","bmi")
+    def onchange_donation_delay_days_age_bmi(self):
+        if self and self.donation_delay_days and self.age and self.bmi:
+            if self.donation_delay_days > 120 and self.age >=18 and self.age <=65 and self.bmi >18.5:
+                self.eligibity = "Yes"
+            else:
+                self.eligibity = "No"
 
 
     @api.model
@@ -131,11 +140,15 @@ class BloodDonor(models.Model):
             vals['contact_no'] = phone_number
         if len(phone_number) == 14 and phone_number[:3] != '+88':
             raise ValidationError("Invalid Contact Number")
+        
         result = super(BloodDonor, self).create(vals)
 
         return result
     
     def write(self, vals):
+
+        
+
         if 'contact_no' in vals:
             if len(vals['contact_no'])>14 or len(vals['contact_no'])<11:
                 raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
@@ -159,6 +172,7 @@ class BloodDonor(models.Model):
             elif vals.get("last_name") and not vals.get("first_name"):
                 vals['name'] = self.first_name+" "+vals.get("last_name")
 
+        
 
         print(vals)
         result = super(BloodDonor,self).write(vals)
