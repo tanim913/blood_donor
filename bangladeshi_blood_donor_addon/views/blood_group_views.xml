@@ -27,17 +27,6 @@
                             </tree>
                         </field>
                     </group>
-                    <!-- <notebook>
-                        <page string="Donor List" name='donor_list'>
-                            <field name="donor_ids">
-                                <tree>
-                                    <field name="name" />
-
-                                </tree>
-
-                            </field>
-                        </page>
-                    </notebook> -->
                 </sheet>
             </form>
         </field>
