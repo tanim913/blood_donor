@@ -45,14 +45,22 @@
                     <notebook>
                         <page string="Donor List" name='donor_list'>
                             <field name="donor_ids" readonly="1">
-                                <tree>
-                                    <field name="name" readonly="1" />
+                                <tree editable="top">
+                                    <field name="donor_id"/>
+                                    <field name="name"/>
+                                    <field name="last_donated"/>
                                 </tree>
-
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="donor_id"/>
+                                            <field name="name"/>
+                                            <field name="last_donated"/>
+                                        </group>
+                                    </sheet>
+                                </form>
                             </field>
                         </page>
-
-
                     </notebook>
                 </sheet>
                 <footer>

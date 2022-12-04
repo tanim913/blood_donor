@@ -84,7 +84,29 @@ class BloodDonor(models.Model):
         difference = symptoms_delay.hours + (symptoms_delay.days*24)
         return difference 
     
+    def view_donor_blood_group_detail(self):
+        form_view_id = self.env.ref('bangladeshi_blood_donor_addon.view_donor_blood_group_form_simple')
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Donor Blood Group'),
+            'res_model': 'donor.blood.group',
+            'view_mode': 'form',
+            'res_id': self.blood_group_id.id, #shows spesific job positions view
+            'view_id': form_view_id.id,
+            'target':'new' # current / main | new: show as popup screen, current: breadcrambs, main: remove all breadcrambs
+        }
     
+    def view_donor_district_detail(self):
+        form_view_id = self.env.ref('bangladeshi_blood_donor_addon.view_donor_district_form_simple')
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Donor District'),
+            'res_model': 'donor.district',
+            'view_mode': 'form',
+            'res_id': self.donor_district_id.id, #shows spesific job positions view
+            'view_id': form_view_id.id,
+            'target':'new' # current / main | new: show as popup screen, current: breadcrambs, main: remove all breadcrambs
+        }
     
 
     @api.onchange('height','weight')
@@ -146,9 +168,6 @@ class BloodDonor(models.Model):
         return result
     
     def write(self, vals):
-
-        
-
         if 'contact_no' in vals:
             if len(vals['contact_no'])>14 or len(vals['contact_no'])<11:
                 raise ValidationError("Wrong Phone number!! : please insert correct phone number.")
@@ -174,6 +193,6 @@ class BloodDonor(models.Model):
 
         
 
-        print(vals)
+        # print(vals)
         result = super(BloodDonor,self).write(vals)
         return result

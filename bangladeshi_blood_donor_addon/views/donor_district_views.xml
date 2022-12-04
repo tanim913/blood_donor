@@ -35,27 +35,34 @@
         </field>
     </record>
 
-<!-- 
-    <record id="view_donor_blood_group_form_simple" model="ir.ui.view">
-        <field name="name">donor.blood.group.form.simple</field>
-        <field name="model">donor.blood.group</field>
+    <record id="view_donor_district_form_simple" model="ir.ui.view">
+        <field name="name">donor.district.form.simple</field>
+        <field name="model">donor.district</field>
         <field name="arch" type="xml">
-            <form string="Blood Group">
+            <form string="District">
                 <sheet>
                     <group>
                         <field name="name" readonly="1" />
                     </group>
                     <notebook>
                         <page string="Donor List" name='donor_list'>
-                            <field name="donor_ids" readonly="1">
-                                <tree>
-                                    <field name="name" readonly="1" />
+                            <field name="district_ids" readonly="1">
+                                <tree editable="top">
+                                    <field name="donor_id"/>
+                                    <field name="name"/>
+                                    <field name="last_donated"/>
                                 </tree>
-
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="donor_id"/>
+                                            <field name="name"/>
+                                            <field name="last_donated"/>
+                                        </group>
+                                    </sheet>
+                                </form>
                             </field>
                         </page>
-
-
                     </notebook>
                 </sheet>
                 <footer>
@@ -63,7 +70,7 @@
                 </footer>
             </form>
         </field>
-    </record> -->
+    </record>
 
     <record id="action_donor_district_list" model="ir.actions.act_window">
         <field name="name">Districts</field>

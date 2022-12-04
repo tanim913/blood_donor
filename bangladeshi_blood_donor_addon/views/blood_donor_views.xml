@@ -23,6 +23,9 @@
             <form string="Blood Donor">
                 <header>
                     <button name="check_eligibility" class="btn btn-primary" string="Check Eligibiity" type="object" />
+                    <button string="View Blood Group" type="object" name="view_donor_blood_group_detail" class="btn btn-primary"/>
+                    <button string="View Donor District" type="object" name="view_donor_district_detail" class="btn btn-primary"/>
+
                 </header>
                 <sheet>
                     <group>
@@ -112,6 +115,7 @@
 
                 <group expand = "1" string="Group By">
                     <filter name="blood_group" string="Blood Group" context="{'group_by':'blood_group_id'}"/>
+                    <filter name="blood_rh_factor" string="RH factor" context="{'group_by':'rh_factor'}"/>
                 </group>
             </search>
         </field>
