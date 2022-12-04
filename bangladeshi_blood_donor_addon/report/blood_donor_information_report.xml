@@ -170,5 +170,168 @@
         </t>
     </template>
 
+    <template id="report_donor_district_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <strong>Donor District:  </strong>
+                        <p>
+                            <span t-out="doc.name" />
+                        </p>
+                        <table class="table table-sm o_main_table">
+                            <strong>
+                            Donor List
+                            </strong>
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th name="th_donor_name" class="text-left">Donor Name</th>
+                                        <th name="th_last_donated" class="text-left">Last Donated</th>
+                                        <th name="th_eligibity" class="text-left">Eligibity</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+
+                            <tbody>
+
+                                <t t-foreach="doc.district_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_donor_name" class="text-left">
+                                            <!-- <span t-out = "id_index+1"/> -->
+                                            <span t-out="id.name" />
+                                        </td>
+
+                                        <td name="td_last_donated" class="text-left">
+                                            <span t-out="id.last_donated" />
+                                        </td>
+
+                                        <td name="td_eligibity" class="text-left">
+                                            <span t-out="id.eligibity" />
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_donor_visitable_place_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <strong>Visitable Place:  </strong>
+                        <p>
+                            <span t-out="doc.name" />
+                        </p>
+                        <table class="table table-sm o_main_table">
+                            <strong>
+                            Donor List
+                            </strong>
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th name="th_donor_name" class="text-left">Donor Name</th>
+                                        <th name="th_last_donated" class="text-left">Last Donated</th>
+                                        <th name="th_district" class="text-left">District</th>
+                                        <th name="th_eligibity" class="text-left">Eligibity</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+
+                            <tbody>
+
+                                <t t-foreach="doc.places_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_donor_name" class="text-left">
+                                            <!-- <span t-out = "id_index+1"/> -->
+                                            <span t-out="id.name" />
+                                        </td>
+
+                                        <td name="td_last_donated" class="text-left">
+                                            <span t-out="id.last_donated" />
+                                        </td>
+
+                                        <td name="td_district" class="text-left">
+                                            <span t-out="id.donor_district_id.name" />
+                                        </td>
+
+                                        <td name="td_eligibity" class="text-left">
+                                            <span t-out="id.eligibity" />
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_donor_symptoms_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <strong>Donor Symptom:  </strong>
+                        <p>
+                            <span t-out="doc.name" />
+                        </p>
+                        <table class="table table-sm o_main_table">
+                            <strong>
+                            Donor List
+                            </strong>
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th name="th_donor_name" class="text-left">Donor Name</th>
+                                        <th name="th_symptom_since" class="text-left">Symptom Since</th>
+                                        <th name="th_blood_group" class="text-left">Blood Group</th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+
+                            <tbody>
+
+                                <t t-foreach="doc.symptom_ids" t-as="id">
+                                    <tr>
+                                        <td name="td_donor_name" class="text-left">
+                                            <!-- <span t-out = "id_index+1"/> -->
+                                            <span t-out="id.name" />
+                                        </td>
+
+                                        <td name="td_symptom_since" class="text-left">
+                                            <span t-out="id.symptom_since" />
+                                        </td>
+
+                                        <td name="th_blood_group" class="text-left">
+                                            <span t-out="id.blood_group_id.name" />
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
 
 </odoo>

@@ -12,7 +12,7 @@
             <field name="binding_type">report</field>
         </record>
 
-        <record id="action_report_employee_job_position" model="ir.actions.report">
+        <record id="action_report_donor_blood_group" model="ir.actions.report">
             <field name="name">Blood Group Information</field>
             <field name="model">donor.blood.group</field>
             <field name="report_type">qweb-pdf</field>
@@ -20,6 +20,39 @@
             <field name="report_file">bangladeshi_blood_donor_addon.report_donor_blood_group_information</field>
             <field name="print_report_name">'Blood Group - %s' % (object.name)</field>
             <field name="binding_model_id" ref="model_donor_blood_group"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_donor_district" model="ir.actions.report">
+            <field name="name">Blood Donor District Information</field>
+            <field name="model">donor.district</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bangladeshi_blood_donor_addon.report_donor_district_information</field>
+            <field name="report_file">bangladeshi_blood_donor_addon.report_donor_district_information</field>
+            <field name="print_report_name">'Donor District - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_donor_district"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_visitable_place" model="ir.actions.report">
+            <field name="name">Blood Donor Visitable Place Information</field>
+            <field name="model">visitable.place</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bangladeshi_blood_donor_addon.report_donor_visitable_place_information</field>
+            <field name="report_file">bangladeshi_blood_donor_addon.report_donor_visitable_place_information</field>
+            <field name="print_report_name">'Donor Visitable Place - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_visitable_place"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_donor_symptoms" model="ir.actions.report">
+            <field name="name">Blood Donor Symptoms</field>
+            <field name="model">donor.symptoms</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bangladeshi_blood_donor_addon.report_donor_symptoms_information</field>
+            <field name="report_file">bangladeshi_blood_donor_addon.report_donor_symptoms_information</field>
+            <field name="print_report_name">'Donor Symptom - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_donor_symptoms"/>
             <field name="binding_type">report</field>
         </record>
 
