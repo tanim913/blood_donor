@@ -5,7 +5,6 @@
         <field name="model">donor.district</field>
         <field name="arch" type="xml">
             <tree string="District">
-                <!-- <field name="id" /> -->
                 <field name="name" />
             </tree>
         </field>
