@@ -84,6 +84,6 @@
         name="Districts"
         parent="menu_blood_donor_module"
         action="action_donor_district_list"
-        sequence="3" />
+        sequence="2" />
 
 </odoo>

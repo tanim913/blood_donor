@@ -82,6 +82,6 @@
         name="Blood Groups"
         parent="menu_blood_donor_module"
         action="action_donor_blood_group_list"
-        sequence="2" />
+        sequence="5" />
 
 </odoo>

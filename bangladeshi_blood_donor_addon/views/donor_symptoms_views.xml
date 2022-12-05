@@ -50,6 +50,6 @@
         name="Donor Symptoms"
         parent="menu_blood_donor_module"
         action="action_donor_symptoms_list"
-        sequence="5" />
+        sequence="3" />
 
 </odoo>
