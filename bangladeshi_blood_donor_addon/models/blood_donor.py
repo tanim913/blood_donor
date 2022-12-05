@@ -1,4 +1,5 @@
 import re
+import uuid
 from datetime import datetime, timedelta
 from dateutil import relativedelta
 from odoo import models, fields, api, _
@@ -163,6 +164,9 @@ class BloodDonor(models.Model):
         if len(phone_number) == 14 and phone_number[:3] != '+88':
             raise ValidationError("Invalid Contact Number")
         
+        if not vals.get("donor_id"):
+            x = str(uuid.uuid4()) 
+            vals["donor_id"] = "bd-" + x[:4].upper()
         result = super(BloodDonor, self).create(vals)
 
         return result

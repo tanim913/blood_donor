@@ -32,7 +32,7 @@
                         <field name="donor_pic" widget="image" />
                     </group>
                     <group>
-                        <field name="donor_id" />
+                        <field name="donor_id" readonly="1"/>
                     </group>
 
                     <notebook>
