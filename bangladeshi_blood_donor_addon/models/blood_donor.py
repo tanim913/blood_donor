@@ -92,9 +92,9 @@ class BloodDonor(models.Model):
             'name': _('Donor Blood Group'),
             'res_model': 'donor.blood.group',
             'view_mode': 'form',
-            'res_id': self.blood_group_id.id, #shows spesific job positions view
+            'res_id': self.blood_group_id.id, 
             'view_id': form_view_id.id,
-            'target':'new' # current / main | new: show as popup screen, current: breadcrambs, main: remove all breadcrambs
+            'target':'new' 
         }
     
     def view_donor_district_detail(self):
@@ -104,9 +104,9 @@ class BloodDonor(models.Model):
             'name': _('Donor District'),
             'res_model': 'donor.district',
             'view_mode': 'form',
-            'res_id': self.donor_district_id.id, #shows spesific job positions view
+            'res_id': self.donor_district_id.id, 
             'view_id': form_view_id.id,
-            'target':'new' # current / main | new: show as popup screen, current: breadcrambs, main: remove all breadcrambs
+            'target':'new'
         }
     
 

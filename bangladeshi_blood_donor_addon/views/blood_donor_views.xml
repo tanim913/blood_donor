@@ -116,6 +116,7 @@
                 <group expand = "1" string="Group By">
                     <filter name="blood_group" string="Blood Group" context="{'group_by':'blood_group_id'}"/>
                     <filter name="blood_rh_factor" string="RH factor" context="{'group_by':'rh_factor'}"/>
+                    <filter name="blood_rh_eligibility" string="Eligibility" context="{'group_by':'eligibity'}"/>
                 </group>
             </search>
         </field>

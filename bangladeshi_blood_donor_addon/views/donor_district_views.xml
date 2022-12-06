@@ -51,6 +51,7 @@
                                     <field name="donor_id"/>
                                     <field name="name"/>
                                     <field name="last_donated"/>
+                                    <field name="blood_group_id"/>
                                 </tree>
                                 <form>
                                     <sheet>
@@ -58,6 +59,7 @@
                                             <field name="donor_id"/>
                                             <field name="name"/>
                                             <field name="last_donated"/>
+                                            <field name="blood_group_id"/>
                                         </group>
                                     </sheet>
                                 </form>

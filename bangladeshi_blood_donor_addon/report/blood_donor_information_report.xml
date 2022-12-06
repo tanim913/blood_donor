@@ -7,106 +7,109 @@
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div class="page">
+                        <t t-if="doc.donor_pic">
+                            <img  t-attf-alt="{{doc.name}}" style="width: 150px; height: 150px; object-fit: cover;" t-attf-src="data:image/png;base64,{{doc.donor_pic}}"/>
+                        </t>
                         <div class="oe_structure" />
                         <h6>
-                            Date:
+                            <strong>Date: </strong>
                             <span t-out="doc.today" />
                         </h6>
                         <h5>
-                            <b>Donor Information</b>
+                            <u><b>Donor Information</b></u>
                         </h5>
                         <h5>
-                            Donor Name :
+                            <strong>Donor Name :</strong>
                             <span t-out="doc.name" />
                         </h5>
 
                         <h5>
-                            Contact No :
+                            <strong>Contact No :</strong>
                             <span t-out="doc.contact_no" />
                         </h5>
                         <h5>
-                            Email Adress :
+                            <strong>Email Adress :</strong>
                             <span t-out="doc.email_address" />
                         </h5>
                         <h5>
-                            Height(cm) :
+                            <strong>Height(cm) :</strong>
                             <span t-out="doc.height" />
                         </h5>
                         <h5>
-                            Weight(kg) :
+                            <strong>Weight(kg) :</strong>
                             <span t-out="doc.weight" />
                         </h5>
                         <h5>
-                            Body Mass Index :
+                            <strong>Body Mass Index :</strong>
                             <span t-out="doc.bmi" />
                         </h5>
                         <h5>
-                            Blood Group :
+                            <strong>Blood Group :</strong>
                             <span t-out="doc.blood_group_id.name" />
                         </h5>
                         <h5>
-                            Gender :
+                            <strong>Gender :</strong>
                             <span t-out="doc.gender" />
                         </h5>
                         <h5>
-                            Date Of Birth :
+                            <strong>Date Of Birth :</strong>
                             <span t-out="doc.date_of_birth" />
                         </h5>
                         <h5>
-                            Age :
+                            <strong>Age: </strong>
                             <span t-out="doc.age" />
                         </h5>
                         <h5>
-                            Last Donated :
+                            <strong>Last Donated :</strong>
                             <span t-out="doc.last_donated" />
                         </h5>
                         <h5>
-                            Donated(Days ago) :
+                            <strong>Donated(Days ago) :</strong>
                             <span t-out="doc.donation_delay_days" />
                         </h5>
 
                         <table class="table table-sm o_main_table">
                             <h5>
-                            Donor's Symptoms
+                                <strong>Donor's Symptoms</strong>
                             </h5>
                             <tbody>
-                                <t t-foreach="doc.donor_symptoms_ids" t-as="id">
-                                    <tr>
+                                <tr>
+                                    <t t-foreach="doc.donor_symptoms_ids" t-as="id">
                                         <td name="td_symptoms_name" class="text-left">
                                             <span t-out="id.name" />
                                         </td>
-                                    </tr>
-                                </t>
+                                    </t>
+                                </tr>
                             </tbody>
                         </table>
                         <h5>
-                            Symptoms Since :
+                            <strong>Symptoms Since :</strong>
                             <span t-out="doc.symptom_since" />
                         </h5>
                         <h5>
-                            Symptoms Hours :
+                            <strong>Symptoms Hours :</strong>
                             <span t-out="doc.symptom_hours" />
                         </h5>
                         <h5>
-                            Donors District :
+                            <strong>Donors District :</strong>
                             <span t-out="doc.donor_district_id.name" />
                         </h5>
                         <table class="table table-sm o_main_table">
                             <h5>
-                            Places Can Travel
+                                <strong>Places Can Travel</strong>
                             </h5>
                             <tbody>
-                                <t t-foreach="doc.visitable_places_ids" t-as="id">
-                                    <tr>
+                                <tr>
+                                    <t t-foreach="doc.visitable_places_ids" t-as="id">
                                         <td name="td_places_name" class="text-left">
                                             <span t-out="id.name" />
                                         </td>
-                                    </tr>
-                                </t>
+                                    </t>
+                                </tr>
                             </tbody>
                         </table>
                         <h5>
-                            Eligible :
+                            <strong>Eligible :</strong>
                             <span t-out="doc.eligibity" />
                         </h5>
                     </div>
