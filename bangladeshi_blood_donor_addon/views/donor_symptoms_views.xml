@@ -48,8 +48,8 @@
     <menuitem
         id="menu_blood_donor_module_donor_symptoms_list"
         name="Donor Symptoms"
-        parent="menu_blood_donor_module"
-        action="action_donor_symptoms_list"
+        parent="bangladeshi_blood_donor_addon.menu_blood_donor_module"
+        action="bangladeshi_blood_donor_addon.action_donor_symptoms_list"
         sequence="3" />
 
 </odoo>

@@ -52,8 +52,8 @@
     <menuitem
         id="menu_blood_donor_module_visitable_place_list"
         name="Places can be visited"
-        parent="menu_blood_donor_module"
-        action="action_visitable_place_list"
+        parent="bangladeshi_blood_donor_addon.menu_blood_donor_module"
+        action="bangladeshi_blood_donor_addon.action_visitable_place_list"
         sequence="4" />
 
 </odoo>

@@ -83,8 +83,8 @@
     <menuitem
         id="menu_blood_donor_module_donor_blood_group_list"
         name="Blood Groups"
-        parent="menu_blood_donor_module"
-        action="action_donor_blood_group_list"
+        parent="bangladeshi_blood_donor_addon.menu_blood_donor_module"
+        action="bangladeshi_blood_donor_addon.action_donor_blood_group_list"
         sequence="5" />
 
 </odoo>

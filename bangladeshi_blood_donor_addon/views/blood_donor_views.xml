@@ -137,8 +137,8 @@
     <menuitem
         id="menu_blood_donor_module_donor_lists"
         name="Donor"
-        parent="menu_blood_donor_module"
-        action="action_blood_donor_list"
+        parent="bangladeshi_blood_donor_addon.menu_blood_donor_module"
+        action="bangladeshi_blood_donor_addon.action_blood_donor_list"
         sequence="1" />
 
 

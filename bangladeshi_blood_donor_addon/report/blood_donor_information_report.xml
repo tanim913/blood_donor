@@ -3,121 +3,66 @@
 
 
     <template id="report_blood_donor_information">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                        <t t-if="doc.donor_pic">
-                            <img  t-attf-alt="{{doc.name}}" style="width: 150px; height: 150px; object-fit: cover;" t-attf-src="data:image/png;base64,{{doc.donor_pic}}"/>
-                        </t>
-                        <div class="oe_structure" />
-                        <h6>
-                            <strong>Date: </strong>
-                            <span t-out="doc.today" />
-                        </h6>
-                        <h5>
-                            <u><b>Donor Information</b></u>
-                        </h5>
-                        <h5>
-                            <strong>Donor Name :</strong>
-                            <span t-out="doc.name" />
-                        </h5>
-
-                        <h5>
-                            <strong>Contact No :</strong>
-                            <span t-out="doc.contact_no" />
-                        </h5>
-                        <h5>
-                            <strong>Email Adress :</strong>
-                            <span t-out="doc.email_address" />
-                        </h5>
-                        <h5>
-                            <strong>Height(cm) :</strong>
-                            <span t-out="doc.height" />
-                        </h5>
-                        <h5>
-                            <strong>Weight(kg) :</strong>
-                            <span t-out="doc.weight" />
-                        </h5>
-                        <h5>
-                            <strong>Body Mass Index :</strong>
-                            <span t-out="doc.bmi" />
-                        </h5>
-                        <h5>
-                            <strong>Blood Group :</strong>
-                            <span t-out="doc.blood_group_id.name" />
-                        </h5>
-                        <h5>
-                            <strong>Gender :</strong>
-                            <span t-out="doc.gender" />
-                        </h5>
-                        <h5>
-                            <strong>Date Of Birth :</strong>
-                            <span t-out="doc.date_of_birth" />
-                        </h5>
-                        <h5>
-                            <strong>Age: </strong>
-                            <span t-out="doc.age" />
-                        </h5>
-                        <h5>
-                            <strong>Last Donated :</strong>
-                            <span t-out="doc.last_donated" />
-                        </h5>
-                        <h5>
-                            <strong>Donated(Days ago) :</strong>
-                            <span t-out="doc.donation_delay_days" />
-                        </h5>
-
-                        <table class="table table-sm o_main_table">
-                            <h5>
-                                <strong>Donor's Symptoms</strong>
-                            </h5>
-                            <tbody>
-                                <tr>
-                                    <t t-foreach="doc.donor_symptoms_ids" t-as="id">
-                                        <td name="td_symptoms_name" class="text-left">
-                                            <span t-out="id.name" />
-                                        </td>
-                                    </t>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h5>
-                            <strong>Symptoms Since :</strong>
-                            <span t-out="doc.symptom_since" />
-                        </h5>
-                        <h5>
-                            <strong>Symptoms Hours :</strong>
-                            <span t-out="doc.symptom_hours" />
-                        </h5>
-                        <h5>
-                            <strong>Donors District :</strong>
-                            <span t-out="doc.donor_district_id.name" />
-                        </h5>
-                        <table class="table table-sm o_main_table">
-                            <h5>
-                                <strong>Places Can Travel</strong>
-                            </h5>
-                            <tbody>
-                                <tr>
-                                    <t t-foreach="doc.visitable_places_ids" t-as="id">
-                                        <td name="td_places_name" class="text-left">
-                                            <span t-out="id.name" />
-                                        </td>
-                                    </t>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h5>
-                            <strong>Eligible :</strong>
-                            <span t-out="doc.eligibity" />
-                        </h5>
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="report-header">
+                        <h2 class="eligibility" t-attf-style="color: {{'green' if doc.eligibity.lower() == 'yes' else 'red'}};">
+                            Eligibility: <span t-out="doc.eligibity"/>
+                        </h2>
                     </div>
+                    <t t-if="doc.donor_pic">
+                        <img class="donor-pic" t-attf-alt="{{doc.name}}" t-attf-src="data:image/png;base64,{{doc.donor_pic}}"/>
+                    </t>
+                    <div class="donor-info">
+                        <table class="table donor-table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Donor Name:</strong></td>
+                                    <td><span t-out="doc.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Date:</strong></td>
+                                    <td><span t-out="doc.today"/></td>
+                                </tr>
+                                <!-- Other personal information fields -->
+                            </tbody>
+                        </table>
 
-                </t>
+                        <h3>Donor's Symptoms</h3>
+                        <div class="info-box">
+                            <table class="table symptoms-table">
+                                <tbody>
+                                    <tr t-foreach="doc.donor_symptoms_ids" t-as="id">
+                                        <td class="text-left">
+                                            <span t-out="id.name"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Places Can Visit</h3>
+                        <div class="info-box">
+                            <table class="table visitable-places-table">
+                                <tbody>
+                                    <tr t-foreach="doc.visitable_places_ids" t-as="id">
+                                        <td class="text-left">
+                                            <span t-out="id.name"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </t>
         </t>
-    </template>
+    </t>
+</template>
+
+
 
 
     <template id="report_donor_blood_group_information">

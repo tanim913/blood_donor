@@ -4,7 +4,7 @@
         <record id="action_report_blood_donor" model="ir.actions.report">
             <field name="name">Donor Information</field>
             <field name="model">blood.donor</field>
-            <field name="report_type">qweb-pdf</field>
+            <field name="report_type">qweb-html</field>
             <field name="report_name">bangladeshi_blood_donor_addon.report_blood_donor_information</field>
             <field name="report_file">bangladeshi_blood_donor_addon.report_blood_donor_information</field>
             <field name="print_report_name">'Donor - %s' % (object.name)</field>

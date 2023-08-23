@@ -84,8 +84,8 @@
     <menuitem
         id="menu_blood_donor_module_donor_district_list"
         name="Districts"
-        parent="menu_blood_donor_module"
-        action="action_donor_district_list"
+        parent="bangladeshi_blood_donor_addon.menu_blood_donor_module"
+        action="bangladeshi_blood_donor_addon.action_donor_district_list"
         sequence="2" />
 
 </odoo>
