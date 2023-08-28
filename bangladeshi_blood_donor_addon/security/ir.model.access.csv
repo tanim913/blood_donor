@@ -4,3 +4,4 @@ access_blood_group,donor.blood.group,model_donor_blood_group,,1,1,1,1
 access_donor_district,donor.district,model_donor_district,,1,1,1,1
 access_visitable_place,visitable.place,model_visitable_place,,1,1,1,1
 access_donor_symptoms,donor.symptoms,model_donor_symptoms,,1,1,1,1
+access_blood_receiver,blood.receiver,model_blood_receiver,,1,1,1,1

@@ -14,7 +14,6 @@
         'base_setup',
     ],
     'data': [
-        # 'security/hr_security.xml',
         'security/ir.model.access.csv',
         'views/blood_group_views.xml',
         'views/blood_donor_views.xml',
@@ -22,6 +21,7 @@
         'views/visitable_place_views.xml',
         'views/res_partner.xml',
         'views/donor_symptoms_views.xml',
+        'views/blood_receiver_views.xml',
         'report/bangladeshi_blood_donor_addon_reports.xml',
         'report/blood_donor_information_report.xml',
         
