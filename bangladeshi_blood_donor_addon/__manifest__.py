@@ -22,6 +22,7 @@
         'views/res_partner.xml',
         'views/donor_symptoms_views.xml',
         'views/blood_receiver_views.xml',
+        'views/blood_receiver_page_template.xml',
         'report/bangladeshi_blood_donor_addon_reports.xml',
         'report/blood_donor_information_report.xml',
         

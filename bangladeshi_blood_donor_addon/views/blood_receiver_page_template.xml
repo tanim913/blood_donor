@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="blood_receiver_page_template" name="Blood Receiver Page">
+        <t t-call="website.layout">
+            <t t-set="title">Blood Receiver Page</t>
+            <div class="container">
+                <h1>Blood Receiver List</h1>
+                <ul>
+                    <t t-foreach="blood_receivers" t-as="receiver">
+                        <li><t t-esc="receiver.blood_donor_id.name"/></li>
+                    </t>
+                </ul>
+            </div>
+        </t>
+    </template>
+</odoo>
+
